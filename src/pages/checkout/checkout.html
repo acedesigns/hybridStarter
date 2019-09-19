@@ -1,0 +1,151 @@
+
+<ion-header>
+    <ion-navbar>
+
+        <ion-buttons left>
+            <button ion-button menuToggle >
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title> Checkout </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>
+                Order Information
+            </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-list style="padding-top: 5px;">
+                <p> Calculated below you'll find your order, taxes, discounts and other amounts included.</p>
+
+                <ion-row>
+                    <ion-col col-8>
+                        <strong> Subtotal </strong>
+                    </ion-col>
+
+                    <ion-col col-4>
+                        <span class="amt" text-right>
+                            {{ productAmt | currency:'R ':true}}
+                        </span>
+                    </ion-col>
+
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-8>
+                        <strong> Delivery Fee </strong>
+                    </ion-col>
+
+                    <ion-col col-4>
+                        <span class="amt" text-right>
+                            R 5 per Km
+                            <!--
+                            {{ shippingFee | currency:'R ':true}}
+                            -->
+                        </span>
+                    </ion-col>
+                </ion-row>
+
+            </ion-list>
+        </ion-card-content>
+
+        <div class="total-wrap" padding>
+            <ion-row>
+
+                <ion-col col-8>
+                    <strong>
+                        Total
+                    </strong>
+                </ion-col>
+
+                <ion-col col-4>
+                    <span class="amt total" text-right>
+                        <!--{{totalAmount | currency:'R ':true}} -->
+
+                        {{ productAmt | currency:'R ':true}}
+                    </span>
+                </ion-col>
+
+            </ion-row>
+        </div>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+
+            <ion-card-title> Payment Details  </ion-card-title>
+
+        </ion-card-header>
+
+        <ion-list radio-group>
+
+            <ion-item>
+                <ion-label>
+                    <p>
+                        <b>Bank Name</b> :: FNB (First National Bank) <br>
+                        <b>Bank Account Number</b> :: 624 6606 4236 <br>
+                        <b>Bank Account Type</b> :: Business Cheque Account <br>
+                        <b>Branch Name</b> :: Fourways <br>
+                        <b>Bank Code</b> :: 260510 <br>
+
+                        <br>
+                        <ion-chip color="danger">
+                            <ion-label >Payment Reff : {{ userData.orderReff }}</ion-label>
+                        </ion-chip>
+
+                        <br>
+                        <ion-chip color="primary">
+                            <ion-label >Payments usually take 48hr to reflect. Please be patient with us. </ion-label>
+                        </ion-chip>
+
+                    </p>
+                </ion-label>
+
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+
+    <ion-card>
+        <ion-card-header>
+
+            <ion-card-title> Other Details </ion-card-title>
+
+        </ion-card-header>
+
+        <ion-list>
+
+
+            <ion-input [(ngModel)]="productAmt"  type="hidden"></ion-input>
+            <ion-item>
+                <ion-label>Urgency</ion-label>
+                <ion-input [(ngModel)]="userData.urgency" placeholder="How soon do you want this order?" type="date"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Notes</ion-label>
+                <ion-textarea [(ngModel)]="userData.notes"></ion-textarea>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Delivery Address</ion-label>
+                <ion-textarea [(ngModel)]="userData.address"></ion-textarea>
+            </ion-item>
+
+        </ion-list>
+    </ion-card>
+
+    <ion-card class="no-shadows">
+        <button (click)="placeOrder(userData, productAmt)" block small ion-button color="energy">
+            Place Order
+        </button>
+    </ion-card>
+
+</ion-content>

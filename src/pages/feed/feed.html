@@ -1,0 +1,51 @@
+
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle >
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title> Emarket Community </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content hide-fab #pageTop>
+
+    <ion-fab right top edge (click)="openCart()">
+        <button ion-fab color="danger"><ion-icon name="cart"></ion-icon></button>
+    </ion-fab>
+
+    <ion-slides pager loop="true">
+
+        <ion-slide *ngFor="let cat of fetcreatives" class="home-hello">
+          <img [src]="cat.pictures[0]" class="slide-image"/>
+          <div class="item">
+              <h2>{{ cat.title }}</h2>
+          </div>
+        </ion-slide>
+
+    </ion-slides>
+
+    <ion-list padding>
+        <ion-item border *ngFor="let item of categoryItems; let i = index;" (click)="onItemClick( item.id )">
+
+            <h2 item-title>  {{ capitalize( item.product_name ) }} </h2>
+
+            <h3 item-subtitle> {{ item.product_decription }} </h3>
+
+            <ion-avatar item-end>
+                <img src="http://www.emarketcommunity.com/products/thumbs/{{ item.product_image }}"/>
+            </ion-avatar>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab bottom right #fab>
+        <button color="danger" ion-fab mini (click)="pageScroller()">
+            <ion-icon name="arrow-dropup"></ion-icon>
+        </button>
+    </ion-fab>
+
+</ion-content>

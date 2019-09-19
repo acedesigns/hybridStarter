@@ -1,0 +1,98 @@
+<!--
+  https://forum.ionicframework.com/t/a-good-form-validation-example/117960/9
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title> Create An Account! </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="register-page">
+
+  <!--<div text-center>
+    <h3>Create your account!</h3>
+  </div>-->
+
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
+
+    <ion-item>
+      <ion-label color="primary" floating> Name </ion-label>
+      <ion-input [(ngModel)]="userData.name" formControlName="name" [class.error1]="!registerForm.controls.name.valid && registerForm.controls.name.dirty"
+                 type="text"></ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="( registerForm.get('name').hasError('minlength') ||registerForm.get('name').hasError('required') ) && registerForm.get('name').touched">
+        <div class="error" *ngIf="registerForm.get('name').hasError('required') && registerForm.get('name').touched">
+          Please input your name
+        </div>
+
+        <div class="error" *ngIf="registerForm.get('name').hasError('pattern') && registerForm.get('name').touched">
+          Just use alphabet character
+        </div>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label color="primary" floating> Surname </ion-label>
+      <ion-input [(ngModel)]="userData.surname" formControlName="surname"
+                [class.error1]="!registerForm.controls.surname.valid && registerForm.controls.surname.dirty"
+                 type="text"
+                 [ngClass]="{ 'is-invalid': submitted && f.surname.errors }"
+                 ></ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="( registerForm.get('surname').hasError('minlength') || registerForm.get('surname').hasError('required') ) && registerForm.get('surname').touched">
+        <div class="error" *ngIf="registerForm.get('surname').hasError('required') && registerForm.get('surname').touched">
+          Please input your Surname
+        </div>
+        <div class="error" *ngIf="registerForm.get('surname').hasError('minlength') && registerForm.get('surname').touched">
+          Minimum 4 characters
+        </div>
+        <div class="error" *ngIf="registerForm.get('surname').hasError('pattern') && registerForm.get('surname').touched">
+          Just use alphabet character
+        </div>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label color="primary" floating> My Email Is </ion-label>
+      <ion-input [(ngModel)]="userData.email" formControlName="email"
+                [class.error1]="!registerForm.controls.email.valid && registerForm.controls.email.dirty"
+                 type="email"></ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="( registerForm.get('email').hasError('required') ) && registerForm.get('email').touched">
+        <div class="error" *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">
+          Please input your Email
+        </div>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label color="primary" floating> Password </ion-label>
+      <ion-input [(ngModel)]="userData.password" formControlName="password"
+                [class.error1]="!registerForm.controls.password.valid && registerForm.controls.password.dirty"
+                 type="password"></ion-input>
+    </ion-item>
+    <ion-item no-lines *ngIf="( registerForm.get('password').hasError('required') ) && registerForm.get('password').touched">
+        <div class="error" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+          Please enter your Password
+        </div>
+    </ion-item>
+
+    <ion-list radio-group>
+
+
+    <ion-item>
+      <ion-input [(ngModel)]="userData.regType" formControlName="regType"
+                type="hidden" hidden></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+    <legend>  </legend>
+
+    <button ion-button full block type="submit" color="primary" [disabled]="registerForm.invalid">
+      <ion-icon name="person-add"></ion-icon>  Sign Me Up
+    </button>
+
+  </form>
+
+</ion-content>

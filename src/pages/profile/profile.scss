@@ -1,0 +1,22 @@
+.ios, .md {
+  page-profile {
+    .toolbar-title { text-transform:capitalize; text-align: center; }
+
+    .user-photo ion-avatar {
+      margin: 0 auto;
+      width: 120px;
+      height: 120px;
+    }
+
+    .pac-container {
+      width: 300px !important;
+    }
+
+    ion-input { font-size: 10pt; }
+
+    #map { height: 400px; border: 1px solid red; }
+    #map div.gm-style div.gmnoprint { visibility: hidden; }
+    #map div.gm-style iframe + div { visibility: hidden; }
+
+  }
+}

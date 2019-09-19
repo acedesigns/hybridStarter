@@ -1,0 +1,23 @@
+.ios, .md {
+  page-login {
+    .auth-page, .item-block { background: color($colors, light) };
+
+    h2 { margin-top: 3.0rem; }
+
+    .forgot-pass { margin: 1rem 0; }
+
+    .item-input .label-md { color: #000; }
+
+    .error {
+      color: rgb(223, 62, 62);
+      font-size: 11px;
+    }
+
+    .error1 {
+      color: rgb(75, 75, 75);
+      border-bottom: 1px solid #ff0000;
+    }
+
+
+  }
+}

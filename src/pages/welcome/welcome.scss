@@ -1,0 +1,59 @@
+.ios, .md {
+  page-welcome {
+
+  #welcome {
+
+    background: color($colors, light);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+
+    .tagline {
+      display: flex; justify-content: center;
+      margin: 10% 0 0 0; font-size: 1.9rem; font-family: 'Sofia', cursive;
+    }
+
+    .mat-primary { width: 100%;}
+
+    .logo-div { display: flex;  justify-content: center; margin: 20% 0 0 0; }
+
+    ion-icon { font-size: 16px;}
+
+    ion-button { color: #fff; }
+
+    .button-outline-ios-danger, .button-outline-md-danger{ color: #fff; }
+
+    .circle-wrap {
+      display: flex;
+      justify-content: center;
+      align-content: flex-start;
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+      margin: 20% 0 10% 0;
+    }
+
+    .circle {
+      border: 1px solid #8d6e63;
+      background: transparent;
+      width: 50px;
+      height: 50px;
+      border-radius: 1000px;
+      margin: 0.5em;
+    }
+
+    .aligner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .already-acc { display: flex; justify-content: center; margin: 10% 0;}
+
+
+  }
+  }
+}

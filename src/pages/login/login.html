@@ -1,0 +1,99 @@
+<ion-content padding class="animated fadeIn login auth-page">
+    <div class="login-content">
+
+        <div padding-horizontal text-center class="animated fadeInDown">
+            <div class="logo"></div>
+            <h2 ion-text class="text-primary"> <strong>Emarket</strong> Community </h2>
+        </div>
+
+
+        <form class="list-form" [formGroup]="loginForm" (ngSubmit)="navToTabsPage(loginForm)">
+
+            <ion-item>
+                <ion-label floating>
+                    <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+                    Email
+                </ion-label>
+                <ion-input type="email"
+                          formControlName="email"
+                          [(ngModel)]="userData.email"></ion-input>
+            </ion-item>
+
+            <ion-item no-lines *ngIf="(loginForm.get('email').hasError('required') ) && loginForm.get('email').touched">
+                <div class="error" *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched">
+                  Please input your Email
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>
+                    <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+                    Password
+                </ion-label>
+                <ion-input type="password"
+                          [(ngModel)]="userData.password"
+                          formControlName="password"></ion-input>
+            </ion-item>
+
+            <ion-item no-lines *ngIf="(loginForm.get('password').hasError('required') ) && loginForm.get('password').touched">
+                <div class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+                  Please input your Password
+                </div>
+            </ion-item>
+
+            <p class="forgot-pass" text-right ion-text tappable (click)="forgotPass()"><strong>Forgot Password?</strong></p>
+
+            <button ion-button icon-start block color="primary" type="submit" tappable [disabled]="loginForm.invalid">
+                <ion-icon name="log-in" item-start></ion-icon>
+                SIGN IN
+            </button>
+
+
+            <br />
+
+
+            <!--
+            <p text-center ion-text>Or Sign in with:</p>
+
+
+
+            <ion-grid>
+                <ion-row>
+
+                    <ion-col col-4>
+                        <button ion-button icon-only color="facebook" block class="btn-facebook">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </button>
+                    </ion-col>
+
+
+                    <ion-col col-4>
+                        <button ion-button icon-only color="twitter" block class="btn-twitter" >
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </button>
+                    </ion-col>
+
+                    <ion-col col-4>
+                        <button ion-button icon-only color="danger" block class="btn-gplus">
+                            <ion-icon name="logo-googleplus"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            -->
+        </form>
+
+
+        <div text-center margin-top>
+            <span ion-text tappable (click)="doRegistration()">New here? <strong>Sign up</strong></span>
+        </div>
+
+
+        <div text-center margin-top>
+            <button ion-button icon-only color="energy" block (click)="goHome()">
+                Home
+            </button>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,101 @@
+
+<ion-header>
+    <ion-navbar>
+
+        <ion-buttons left>
+            <button ion-button menuToggle >
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title>Profile</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-refresher (ionRefresh)="pullToRefresh($event)">
+        <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles"
+                refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <form [formGroup]="updateForm" (ngSubmit)="updateInfo(updateForm)">
+
+        <ion-input type="hidden" name="user_id" formControlName="user_id"></ion-input>
+
+        <!--
+        <div class="user-photo" padding-top>
+            <ion-avatar>
+                <img [src]="'./assets/imgs/profile.png'">
+            </ion-avatar>
+        </div>
+        -->
+
+        <ion-list>
+
+            <ion-grid>
+
+                <ion-row>
+
+                    <ion-col>
+                        <ion-item>
+                            <ion-label floating>Name</ion-label>
+                            <ion-input type="text" name="name" formControlName="name"></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col>
+                        <ion-item>
+                            <ion-label floating>Surname</ion-label>
+                            <ion-input type="text" name="surname" formControlName="surname"></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                </ion-row>
+
+                <ion-row>
+
+                    <ion-col>
+                        <ion-item>
+                            <ion-label floating>Cell No:</ion-label>
+                            <ion-input type="text"
+                                       name="phone" formControlName="phone"
+                                       [brmasker]="{ mask:'000 000 0000', len:10, phone: true }"></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col>
+                        <ion-item>
+                            <ion-label floating> Location </ion-label>
+                            <ion-input type="text" name="location" id="autocomplete" formControlName="location"></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                </ion-row>
+
+                <ion-row>
+
+                    <ion-col>
+                        <ion-item>
+                            <ion-label floating> Email </ion-label>
+                            <ion-input type="text" name="email" formControlName="email"></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                </ion-row>
+
+                <button ion-button color="facebook" type="submit">Update Info</button>
+
+            </ion-grid>
+
+        </ion-list>
+
+    </form>
+
+    <div #map id="map" class="map"></div>
+
+</ion-content>

@@ -1,0 +1,21 @@
+.ios, .md {
+  page-checkout {
+    .toolbar-title { text-transform:capitalize; text-align: center; }
+
+    .card-title { font-size: 1.4rem; }
+    .item-md p { font-size: 1.2rem; }
+
+    //textarea.text-input { border: 0.5px solid red; }
+
+    .item-block .item-inner {
+      visibility: visible;
+      border-bottom: 1px solid #dedede !important;
+    }
+
+    .no-shadows {
+      border: none;
+      box-shadow: none;
+    }
+
+  }
+}
