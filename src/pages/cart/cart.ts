@@ -6,7 +6,6 @@
  * ====================================================
  */
 
- // https://github.com/samarthagarwal/wooionic3
 
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, LoadingController, Loading } from 'ionic-angular';
